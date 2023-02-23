@@ -1,0 +1,13 @@
+// Список дополнительных библиотек
+
+axios
+styled-components
+react-redux
+@reduxjs/toolkit
+react-router-dom
+nanoid
+redux-persist
+
+
+
+npm i axios styled-components react-redux @reduxjs/toolkit react-router-dom redux-persist nanoid
