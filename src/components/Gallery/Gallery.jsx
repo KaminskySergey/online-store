@@ -4,7 +4,7 @@ import styled from "styled-components"
 const GalleryList = styled.ul`
     list-style: none;
     display: flex;
-    margin-top: 24px;
+    
     flex-wrap: wrap;
     gap: 8px;
 `
