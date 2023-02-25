@@ -8,5 +8,8 @@ const HomePageWrapper = styled.div`
 
 
 export const HomePage = () => {
+
+    
+
     return(<HomePageWrapper><Categories/><Gallery/></HomePageWrapper>)
 }
