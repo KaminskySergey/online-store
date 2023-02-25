@@ -6,6 +6,10 @@ import { ProductPage } from "Pages/ProductPage/ProductPage";
 import { SharedLayout } from "./SharedLayout/SharedLayout";
 
 export const App = () => {
+
+  
+
+
   return (
     <>
       <BrowserRouter basename="online-store">
