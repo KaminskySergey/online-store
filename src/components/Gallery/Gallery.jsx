@@ -25,11 +25,13 @@ const Thumb = styled.div`
     width: 100%;
 `
 
+axios.defaults.baseURL = "https://localhost:8000";
+
 export const Gallery = () => {
 
     const onClick = async () => {
         try {
-      const response = await axios.get("http://localhost:8080/categoty");
+      const response = await axios.get("/category");
       console.log(response)
             return response;
             
