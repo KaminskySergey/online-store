@@ -2,6 +2,9 @@ import styled from "styled-components"
 import { BiSearch } from "react-icons/bi";
 import { nanoid } from "nanoid";
 import { useState } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getProductsThunk } from "Redux/gallery/gallery.thunk";
 
 const StyledSearch = styled.div`
     /* display: flex; */
@@ -35,12 +38,15 @@ export const Search = () => {
     const [search, setSearch] = useState("");
     const searchInputId = nanoid();
 
+    const dispatch = useDispatch();
+
     const onInputChange = (event) => {
     setSearch(event.target.value)
     }
 
-    const onSubmit = () => {
-        alert("Кто прочитал тот лох")
+    const onSubmit = async (event) => {
+        event.preventDefault();
+        dispatch(getProductsThunk(search))
     }
   
 
