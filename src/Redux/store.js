@@ -5,6 +5,8 @@ import { authReducer } from "./auth/auth.slice"
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
+import { galleryInitState } from "./gallery/gallery.init-state";
+import { galleryReducer } from "./gallery/gallery.slice";
 
 const persistConfig = {
   key: 'auth',
@@ -15,12 +17,14 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, authReducer)
 
 const initState = {
-    auth: authInitState,
+  auth: authInitState,
+  gallery: galleryInitState,
 }
 
 export const store = configureStore({
     reducer: {
-        auth: persistedReducer,
+      auth: persistedReducer,
+      gallery: galleryReducer,
     },
     middleware: [thunk],
     devTools: true,

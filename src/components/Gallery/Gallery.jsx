@@ -1,6 +1,7 @@
-import { productsDefault } from "API/API"
+import { ProductSample, productsDefault } from "API/API"
 import styled from "styled-components"
 import axios from "axios"
+import { useSelector } from "react-redux"
 
 const GalleryList = styled.ul`
     list-style: none;
@@ -28,21 +29,27 @@ const Thumb = styled.div`
 axios.defaults.baseURL = "https://localhost:8000";
 
 export const Gallery = () => {
+    
+    const products = useSelector(state => state.gallery)
 
-    const onClick = async () => {
-        try {
-      const response = await axios.get("/category");
-      console.log(response)
-            return response;
+
+    // const onClick = async () => {
+    //     try {
+    //   const response = await axios.get("/category");
+    //   console.log(response)
+    //         return response;
             
-    } catch (error) {
-            return console.log(error);
-    }
-    }
+    // } catch (error) {
+    //         return console.log(error);
+    // }
+
+    
+
+    // }
 
     return (<GalleryList>
-        <button onClick={onClick}>GET CATEGORY</button>
-        {productsDefault.map(product => <GalleryItem key={product.id}>
+        {/* <button onClick={onClick}>GET CATEGORY</button> */}
+        {products.map(product => <GalleryItem key={product.id}>
             <Thumb>
                 <img src={product.image} alt="product"></img>
             </Thumb>
