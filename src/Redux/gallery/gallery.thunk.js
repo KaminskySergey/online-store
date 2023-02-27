@@ -4,11 +4,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const getProductsThunk = createAsyncThunk("sdfsdgsdgdfgdfg", async (query, thunkAPI) => {
     
     try {
-        const response = await axios({
-        method: 'get',
-            url: `/product/name?q=${query}`,
-        });
-      console.log(response.data)
+        const response = await axios.get(`http://localhost:8080/product/name?q=${query}`);
+      
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message)

@@ -1,1 +1,3 @@
-export const galleryInitState = [];
+export const galleryInitState = {
+    items: []
+};
