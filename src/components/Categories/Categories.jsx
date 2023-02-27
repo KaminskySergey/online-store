@@ -1,30 +1,31 @@
-import styled from "styled-components"
+import axios from "axios"
+import { useEffect } from "react"
+import { Item, List } from "./Caterogies.styled"
 
-const CategoriesList = styled.ul`
-        list-style: none;
-        min-width: 300px;
-        padding-left: 0;
-    `
-
-const CategoryListItem = styled.li`
-
-    border: 1px solid green;
-    border-radius: 4px;
-    padding: 8px 16px;
-    margin: 8px;
-`
 
 export const Categories = () => {
-    return (<CategoriesList>
-        <CategoryListItem>Крупная бытовая техника</CategoryListItem>
-        <CategoryListItem>Мелкая бытовая техника</CategoryListItem>
-        <CategoryListItem>Смартфоны</CategoryListItem>
-        <CategoryListItem>Ноутбуки</CategoryListItem>
-        <CategoryListItem>Товары для дома</CategoryListItem>
-        <CategoryListItem>Автотовары</CategoryListItem>
-        <CategoryListItem>Детские товары</CategoryListItem>
-        <CategoryListItem>Алкоголь</CategoryListItem>
-        <CategoryListItem>Наркотики</CategoryListItem>
-        <CategoryListItem>Не заходи сюда</CategoryListItem>
-    </CategoriesList>)
+
+    useEffect(() => {
+        try {
+            const fetchCategory = async () => {
+                const {data} = await axios.get(`http://localhost:8080/category`)
+                console.log(data, 'data')
+            }
+            fetchCategory()
+        } catch (error) {
+            
+        }
+    }, [])
+    return (<List>
+        <Item>Крупная бытовая техника</Item>
+        <Item>Мелкая бытовая техника</Item>
+        <Item>Смартфоны</Item>
+        <Item>Ноутбуки</Item>
+        <Item>Товары для дома</Item>
+        <Item>Автотовары</Item>
+        <Item>Детские товары</Item>
+        <Item>Алкоголь</Item>
+        <Item>Наркотики</Item>
+        <Item>Не заходи сюда</Item>
+    </List>)
 }
