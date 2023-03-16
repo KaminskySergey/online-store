@@ -10,7 +10,7 @@ const gallerySlice = createSlice({
         builder
             .addCase(getProductsThunk.pending, state => state)
             .addCase(getProductsThunk.fulfilled, (state, { payload }) => {
-                console.log(payload)
+                console.log(state.items)
                 state.items = payload;
                 
             })
