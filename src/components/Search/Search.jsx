@@ -1,4 +1,4 @@
-import styled from "styled-components"
+
 import { BiSearch } from "react-icons/bi";
 import { nanoid } from "nanoid";
 import { useState } from "react";
